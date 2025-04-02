@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+   padding: 0; 
+   font-family: Comic Sans MS, sans-serif;
+   background-image: url("NT.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+img:hover{
+    filter: blur(4px);
+    transform: scale(1.1);
+}
