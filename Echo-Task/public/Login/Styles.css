@@ -29,3 +29,61 @@
     height: 30px; 
     
 }
+ .login{  
+     display: flex;
+     border: solid 2px;
+     border-radius: 15px;
+     width: 300px;
+     height: 350px;
+     position: relative;
+     left: 40%;
+     padding-top: 30px;
+     background-color: rgba(227, 215, 215, 0.2);
+     box-shadow: 5px 5px 50px 5px;
+ }
+ .sect-log{
+     padding:70px;
+ }
+ .title{
+     display: flex;
+     justify-content: center;
+     font-size: 40px;
+     padding: 20px;
+ }
+ .box-1{
+     width: 150px;
+     height: 20px; 
+     
+ }
+ div {
+     transform: translate(0%, 30%);
+     text-align: center;
+ }
+ input {
+     padding: 4px;
+     border-radius: 20px;
+ }
+ button {
+     background-color: MediumSeaGreen;
+     padding: 10px;
+     width: 100%;
+     border-radius: 20px;
+     cursor: pointer;
+ }
+.enviar:hover{
+    background-color: 	#2E8B57;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Comic Sans MS, sans-serif;
+    background-image: url("realista pintada.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: red;
+}

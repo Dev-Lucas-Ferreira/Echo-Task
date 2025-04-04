@@ -1,3 +1,4 @@
+
 :root {
     --cor-primaria: #00ff00;
 }
@@ -10,6 +11,7 @@
 header {
     background-color: var(--cor-primaria);
     height: 100%;
+
     border: solid 1px;
     display: flex;
     align-items: center;
