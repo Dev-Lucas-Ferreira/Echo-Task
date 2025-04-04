@@ -1,11 +1,15 @@
+:root {
+    --cor-primaria: #00ff00;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #00FF00;
-    height: 100px;
+    background-color: var(--cor-primaria);
+    height: 100%;
     border: solid 1px;
     display: flex;
     align-items: center;
