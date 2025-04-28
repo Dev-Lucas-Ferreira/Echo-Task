@@ -23,8 +23,6 @@ EcoTask é uma plataforma intuitiva para ajudar o ecosistema  com as suas tarefa
 3. **Acompanhe:** Utilize o painel de controle para verificar o andamento das suas tarefas.
 4. **Complete:** Marque as tarefas como concluídas e veja seu progresso ecológico.
 
-## Licença
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 ---
 ## colaboradores
