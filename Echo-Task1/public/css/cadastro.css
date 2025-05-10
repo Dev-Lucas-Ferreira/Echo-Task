@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url("../img/backgroun_cadastro.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    border: solid 1px;
+    width: 28vw; /* Largura aumentada do formulário */
+    height: auto;
+    box-shadow: 5px 5px 50px 5px;
+    background-color: rgba(227, 215, 215, 0.2);
+    border-radius: 10px;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    padding: 2vw;
+    font-size: 2rem;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    width: 100%;
+}
+
+input {
+    height: 5vh;
+    width: 15vw;
+    border-radius: 5px;
+    border: none;
+    padding: 1vw;
+    font-size: 1rem;
+}
+
+input:hover{
+    border: solid 0.2px black;
+}
+
+
+button {
+    height: 5vh;
+    width: 10vw;
+    margin-top: 1vw;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: green;
+    cursor: pointer;
+    color: whitesmoke;
+    border: solid 0.2px black;
+}
+
+/* Media Query for Screens Below 768px */
+@media (max-width: 768px) {
+    form {
+        width: 50vw; /* A largura foi ajustada para 50vw */
+        padding: 4vw;
+    }
+
+    input {
+        width: 80%; /* Ajustando a largura do input */
+    }
+
+    button {
+        width: 80%; /* Botão ajustado para 80% da largura */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Media Query for Screens Below 480px */
+@media (max-width: 480px) {
+    form {
+        width: 70vw; /* A largura foi ajustada para 70vw */
+        padding: 5vw;
+    }
+
+    input {
+        width: 100%; /* Inputs ocupando toda a largura disponível */
+        height: 8vh;
+    }
+
+    button {
+        width: 100%; /* Botão ocupando toda a largura */
+        height: 8vh;
+    }
+}
