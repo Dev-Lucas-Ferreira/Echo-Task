@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Agora a imagem de fundo está só nesta seção */
+.background {
+    background: url("../img/reciclage.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh; /* Ou ajuste para o tamanho que quiser */
+}
+
+header {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+    padding: 0 20px;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+#logo img {
+    height: 100%;
+    width: 100%;
+}
+
+#paginas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+a:hover {
+    color: rgb(8, 187, 8);
+    font-size: 1.7rem;
+}
+
+#login-cadastro {
+    display: flex;
+    gap: 10px;
+}
+
+#login-cadastro button {
+    padding: 10px 15px;
+    border: none;
+    background-color: white;
+    color: green;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#login-cadastro button:hover {
+    background-color: rgb(200, 255, 200);
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    #paginas {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    header > div:last-child {
+        flex-direction: column;
+    }
+}
