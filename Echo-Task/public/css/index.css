@@ -73,6 +73,31 @@ a:hover {
 #login-cadastro button:hover {
     background-color: rgb(200, 255, 200);
 }
+.apresentacao {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 100, 0, 0.7);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.apresentacao h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.apresentacao p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
 
 @media (max-width: 600px) {
     header {
