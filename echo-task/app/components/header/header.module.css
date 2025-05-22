@@ -35,7 +35,7 @@
 @media (max-width: 600px) {
   .header {
     flex-direction: column;
-    height: 70px;
+    height: auto;
     padding: 10px;
     gap: 15px;
     text-align: center;
