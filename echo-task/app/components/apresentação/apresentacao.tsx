@@ -1,3 +1,4 @@
+'user client'
 import style from './apresentacao.module.css'
 
 export default function Apresentacao(){

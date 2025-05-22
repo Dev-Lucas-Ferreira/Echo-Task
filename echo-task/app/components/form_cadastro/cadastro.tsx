@@ -1,3 +1,4 @@
+'user client'
 import style from "./cadastro.module.css"
 
 export default function Form_cadastro(){

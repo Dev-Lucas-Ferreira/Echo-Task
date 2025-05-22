@@ -1,3 +1,4 @@
+'user client'
 import style from "./login.module.css"
 
 export default function Form_login(){
