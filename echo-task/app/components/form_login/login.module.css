@@ -1,0 +1,117 @@
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url("/imagens/background_login.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.form{
+    width: 20vw;
+    height: 49vh;
+    border: solid 1px;
+    justify-content: center;
+    border-radius:10px;
+    box-shadow: 5px 5px 50px 5px;
+    background-color: rgba(227, 215, 215, 0.2);
+}
+.h1{
+    display: flex;
+    justify-content: center;
+    padding: 2vw;
+}
+.div{
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+.input{
+    height: 5vh;
+    width: 15vw;
+    border-radius: 5px;
+    border: none;
+}
+.input:hover{
+    border: solid 0.2px black;
+}
+.button {
+    height: 7vh;
+    width: 13vw;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: green;
+    cursor: pointer;
+    color: whitesmoke;
+    border: solid 0.2px black;
+}
+.a{
+    text-decoration: none;
+    color: black;
+}
+.a:hover{
+    color: red;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .form {
+        width: 40vw;
+        height: auto;
+        padding: 4vw;
+    }
+    .input {
+        width: 30vw;
+    }
+    .button {
+        width: 25vw;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .form {
+        width: 60vw;
+        padding: 6vw;
+    }
+    .input {
+        width: 50vw;
+    }
+    .button {
+        width: 40vw;
+    }
+    .h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .form {
+        width: 80vw;
+        padding: 8vw;
+    }
+    .input {
+        width: 70vw;
+    }
+    .button {
+        width: 60vw;
+    }
+    .h1 {
+        font-size: 1.2rem;
+    }
+    .a {
+        font-size: 0.8rem;
+    }
+}
+
+

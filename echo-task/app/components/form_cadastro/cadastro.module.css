@@ -1,22 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+.body{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: url("../img/backgroun_cadastro.png");
+    background: url("/imagens/background_cadastro.png");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
-    padding: 10px;
 }
-
-form {
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+.form {
     border: solid 1px;
     width: 28vw;
     max-width: 400px;
@@ -31,20 +28,20 @@ form {
     align-items: center;
 }
 
-h1 {
+.h1 {
     text-align: center;
     padding: 1rem;
     font-size: 2rem;
 }
 
-div {
+.div {
     display: flex;
     justify-content: center;
     padding: 8px;
     width: 100%;
 }
 
-input {
+.input {
     height: 5vh;
     width: 100%;
     border-radius: 5px;
@@ -53,11 +50,11 @@ input {
     font-size: 1rem;
 }
 
-input:hover {
+.input:hover {
     border: solid 0.2px black;
 }
 
-button {
+.button {
     height: 5vh;
     width: 100%;
     margin-top: 1vw;
@@ -66,47 +63,64 @@ button {
     border: none;
 }
 
-button:hover {
+.button:hover {
     background-color: green;
     cursor: pointer;
     color: whitesmoke;
     border: solid 0.2px black;
 }
 
-a {
+.a {
     text-decoration: none;
     color: black;
     font-size: 0.9rem;
     text-align: center;
 }
 
-a:hover {
+.a:hover {
     color: red;
     cursor: pointer;
 }
 
-/* Responsividade */
-
-@media (max-width: 768px) {
-    form {
-        width: 80vw;
+@media (max-width: 1024px) {
+    .form {
+        width: 60vw;
         padding: 4vw;
     }
+}
 
-    h1 {
+@media (max-width: 768px) {
+    .form {
+        width: 80vw;
+        padding: 6vw;
+    }
+
+    .h1 {
         font-size: 1.5rem;
+    }
+
+    .input, .button {
+        font-size: 0.9rem;
+        padding: 0.6rem;
     }
 }
 
 @media (max-width: 480px) {
-    form {
+    .form {
         width: 90vw;
-        padding: 5vw;
+        padding: 8vw;
     }
 
-    input,
-    button {
-        height: 7vh;
-        font-size: 1rem;
+    .h1 {
+        font-size: 1.2rem;
+    }
+
+    .input, .button {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .a {
+        font-size: 0.8rem;
     }
 }
