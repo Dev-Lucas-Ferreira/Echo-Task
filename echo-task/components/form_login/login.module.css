@@ -15,13 +15,18 @@
 }
 
 .form{
-    width: 20vw;
-    height: 49vh;
     border: solid 1px;
-    justify-content: center;
-    border-radius:10px;
-    box-shadow: 5px 5px 50px 5px;
+    width: 22vw;
+    max-width: 400px;
+    min-width: 280px;
+    height: 40vh;
+    box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.3);
     background-color: rgba(227, 215, 215, 0.2);
+    border-radius: 10px;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .h1{
     display: flex;
@@ -35,9 +40,11 @@
 }
 .input{
     height: 5vh;
-    width: 15vw;
+    width: 100%;
     border-radius: 5px;
     border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
 }
 .input:hover{
     border: solid 0.2px black;
