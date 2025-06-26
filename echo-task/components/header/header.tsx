@@ -1,25 +1,20 @@
 import Image from "next/image"
-import Link from "next/link"
 import style from './header.module.css'
+import { ReactNode } from "react"
+
+interface Headerprops{
+    children:ReactNode;
+}
 
 
-export default function Header(){
+export default function Header({children}: {children?: React.ReactNode}){
     return(
         <>
             <header className={style.header}>
                 <div id="logo">
                     <Image src="/imagens/logo.png" alt="logo" width={80} height={80}/>
                 </div>
-
-                <div className={style.btn_login_cadastro}>
-                    <Link href={'/login'}>
-                        <button className={style.botao}>Login</button>
-                    </Link>
-                    <Link href={'/cadastro'}>
-                        <button className={style.botao}>Cadastro</button>
-                    </Link>
-                </div>
-
+                {children}
             </header>
             <div className={style.body}></div>
         </>

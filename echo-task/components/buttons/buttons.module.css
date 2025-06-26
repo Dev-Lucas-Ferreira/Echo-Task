@@ -1,0 +1,17 @@
+.buttonsContainer {
+    display: flex;
+    gap: 16px; /* Espaço entre os botões */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+}
+.buttons{
+    width: 80px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+}
+.buttons:hover{
+    border: solid 0.2px black;
+    background-color: rgb(149, 149, 233);
+    cursor: pointer;
+}

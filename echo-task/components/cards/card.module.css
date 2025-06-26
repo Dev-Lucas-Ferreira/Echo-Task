@@ -1,0 +1,68 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 35px;
+  justify-items: center;
+}
+
+.card {
+  background-color: white;
+  width: 240px;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 20px,
+      #999 21px
+    );
+}
+
+.espiral {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: repeating-linear-gradient(
+    to right,
+    black,
+    black 5px,
+    transparent 5px,
+    transparent 20px
+  );
+  border-radius: 5px 5px 0 0;
+}
+
+.conteudo {
+  flex-grow: 1;
+}
+
+.texto {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+}
+
+.icones {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.pontos {
+  font-size: 10px;
+  text-align: right;
+  margin-top: 5px;
+  color: black;
+}
