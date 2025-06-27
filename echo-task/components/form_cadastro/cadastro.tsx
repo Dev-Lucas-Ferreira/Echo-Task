@@ -37,7 +37,7 @@ export default function Form_cadastro(){
                                 </div>)
                             })}
                         <div className={style.div}>
-                            <button className={style.button} type="submit">Cadastrar-se</button>
+                            <button className={style.button} type="submit" >Cadastrar-se</button>
                         </div>
                         <div className={style.a}>
                             <a href="#">Já possuo conta</a>

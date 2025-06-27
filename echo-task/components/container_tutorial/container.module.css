@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.95);
-  padding: 32px 24px 24px;
+  padding: 24px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   max-width: 900px;
@@ -20,35 +20,21 @@
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  padding: 0 12px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
 }
 
 .card {
-  background-color: white;
-  width: 100%;
-  border: 2px solid black;
+  border: 2px solid #ccc;
   border-radius: 10px;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
-  font-family: 'Courier New', Courier, monospace;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 20px,
-    #999 21px
-  );
-  box-sizing: border-box;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .card h2 {
@@ -91,27 +77,26 @@
   background-color: #1f2937;
 }
 
-/* Responsividade */
+/* RESPONSIVIDADE PARA TELAS MENORES */
 @media (max-width: 600px) {
   .container {
     width: 95%;
-    padding: 20px 16px;
+    padding: 16px;
     max-height: 95vh;
   }
 
   .title {
     font-size: 20px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 
   .cardGrid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr; /* Coluna única */
+    gap: 12px;
   }
 
   .card {
     padding: 12px;
-    width: 100%;
   }
 
   .card h2 {
