@@ -12,7 +12,7 @@ export default function Header({children}: {children?: React.ReactNode}){
         <>
             <header className={style.header}>
                 <div id="logo">
-                    <Image src="/imagens/logo.png" alt="logo" width={80} height={80}/>
+                    
                 </div>
                 {children}
             </header>

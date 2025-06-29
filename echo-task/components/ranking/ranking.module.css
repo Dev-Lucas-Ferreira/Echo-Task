@@ -1,0 +1,59 @@
+.rankingContainer {
+  background-color: #f9fafb;
+  padding: 24px;
+  margin: 40px auto;
+  border-radius: 12px;
+  max-width: 700px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.titulo {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #111827;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.tabela th,
+.tabela td {
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  text-align: center;
+}
+
+.tabela th {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.tabela tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
+
+.tabela tr:hover {
+  background-color: #e0e7ff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .tabela th, .tabela td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .titulo {
+    font-size: 20px;
+  }
+
+  .rankingContainer {
+    padding: 16px;
+  }
+}

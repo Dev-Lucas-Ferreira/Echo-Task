@@ -1,39 +1,5 @@
-.container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 32px 24px 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  max-width: 900px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  font-family: sans-serif;
-  color: #333;
-  box-sizing: border-box;
-}
-
-.title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 32px;
-}
-
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  padding: 0 12px;
-  justify-items: center;
-}
-
 .card {
   background-color: white;
-  width: 100%;
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
@@ -42,6 +8,9 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
+  width: 100%;
+  max-width: 320px;
+  cursor: pointer;
   background-image: repeating-linear-gradient(
     to bottom,
     transparent,
@@ -49,6 +18,12 @@
     #999 21px
   );
   box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {
@@ -77,6 +52,8 @@
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.2s ease;
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 .btn:hover {
@@ -91,27 +68,61 @@
   background-color: #1f2937;
 }
 
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Card Detalhado */
+.cardDetalhado {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.cardDetalhado h2 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.cardDetalhado ul {
+  padding-left: 20px;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.cardDetalhado p {
+  margin-top: 16px;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 /* Responsividade */
 @media (max-width: 600px) {
-  .container {
-    width: 95%;
-    padding: 20px 16px;
-    max-height: 95vh;
-  }
-
-  .title {
-    font-size: 20px;
-    margin-bottom: 24px;
-  }
-
-  .cardGrid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
   .card {
     padding: 12px;
-    width: 100%;
+    max-width: 100%;
   }
 
   .card h2 {
@@ -119,7 +130,15 @@
   }
 
   .btn {
-    font-size: 14px;
+    font-size: 13px;
     padding: 6px 10px;
+  }
+
+  .cardDetalhado {
+    padding: 16px;
+  }
+
+  .cardDetalhado h2 {
+    font-size: 18px;
   }
 }

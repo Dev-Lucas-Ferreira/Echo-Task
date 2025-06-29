@@ -2,6 +2,7 @@
 import styles from './container.module.css';
 import Image from 'next/image';
 import Cards from '../cards/card';
+import Buttons from '../buttons/buttons'; 
 
 export default function ContainerTutorial() {
   return (
@@ -22,7 +23,7 @@ export default function ContainerTutorial() {
         <div className={styles.card}>
           Aqui é uma missão de teste. Ao apertar nela você verá os detalhes dela
           <div>
-            <Cards titulo="A" linhas={["Coletar 10 garrafas plasticas", ""]} pontos="10" />
+            <Cards titulo="Misão de coleta" linhas={["Coletar 10 garrafas plasticas", "Coletar 2L de oléo de cozinha usado"]} pontos="10" />
           </div>
         </div>
 
@@ -44,9 +45,13 @@ export default function ContainerTutorial() {
 
         <div className={styles.card}>
           <p>Esse é o EcoTask, esperamos que se divirta com nosso site!</p>
-          <button className={`${styles.btn} ${styles.start}`}>Iniciar</button>
+          <Buttons texto="Iniciar" rota="/home  "></Buttons>
         </div>
+        
+
       </div>
+      
     </div>
+   
   );
 }

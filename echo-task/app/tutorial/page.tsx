@@ -10,7 +10,7 @@ export default function Tutorial() {
         <div className={Bstyle.body}>
             <main>
                 <Header />
-                <ContainerTutorial />           
+                <ContainerTutorial />
             </main>
         </div>
     )
