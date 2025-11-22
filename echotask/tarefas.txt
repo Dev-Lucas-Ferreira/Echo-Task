@@ -1,0 +1,376 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Leaf, 
+  TreePine, 
+  Sparkles, 
+  Heart,
+  Star,
+  ChevronDown,
+  Check,
+  Trophy,
+  Target,
+  Zap,
+  Droplets,
+  Recycle,
+  Sun,
+  Wind,
+  Trash2,
+  Award,
+  User,
+  Settings
+} from 'lucide-react';
+
+const EcoTasksPage = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const [completedTasks, setCompletedTasks] = useState(new Set());
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [totalScore, setTotalScore] = useState(0);
+  const [lastCompletedTask, setLastCompletedTask] = useState(null);
+
+  const tasks = [
+    {
+      id: 1,
+      title: "Economize Água",
+      description: "Tome um banho de 5 minutos ou menos",
+      points: 150,
+      icon: Droplets,
+      color: "from-blue-500 to-blue-600",
+      difficulty: "Fácil"
+    },
+    {
+      id: 2,
+      title: "Recicle Materiais",
+      description: "Separe e recicle 5 itens diferentes",
+      points: 250,
+      icon: Recycle,
+      color: "from-green-500 to-green-600",
+      difficulty: "Médio"
+    },
+    {
+      id: 3,
+      title: "Energia Solar",
+      description: "Use luz natural por 3 horas seguidas",
+      points: 200,
+      icon: Sun,
+      color: "from-yellow-500 to-orange-500",
+      difficulty: "Fácil"
+    },
+    {
+      id: 4,
+      title: "Transporte Verde",
+      description: "Ande de bicicleta ou a pé por 30 min",
+      points: 300,
+      icon: Wind,
+      color: "from-cyan-500 to-teal-600",
+      difficulty: "Médio"
+    },
+    {
+      id: 5,
+      title: "Zero Desperdício",
+      description: "Complete um dia sem produzir lixo",
+      points: 500,
+      icon: Target,
+      color: "from-purple-500 to-pink-600",
+      difficulty: "Difícil"
+    },
+    {
+      id: 6,
+      title: "Limpeza Urbana",
+      description: "Colete 10 lixos na rua ou parque",
+      points: 350,
+      icon: Trash2,
+      color: "from-red-500 to-pink-500",
+      difficulty: "Médio"
+    },
+    {
+      id: 7,
+      title: "Plante uma Árvore",
+      description: "Plante ou cuide de uma planta",
+      points: 400,
+      icon: TreePine,
+      color: "from-emerald-500 to-green-600",
+      difficulty: "Médio"
+    },
+    {
+      id: 8,
+      title: "Energia Limpa",
+      description: "Desconecte aparelhos por 4 horas",
+      points: 180,
+      icon: Zap,
+      color: "from-amber-500 to-yellow-600",
+      difficulty: "Fácil"
+    },
+    {
+      id: 9,
+      title: "Educação Ambiental",
+      description: "Ensine 3 pessoas sobre sustentabilidade",
+      points: 600,
+      icon: Award,
+      color: "from-indigo-500 to-purple-600",
+      difficulty: "Difícil"
+    }
+  ];
+
+  useEffect(() => {
+    setIsVisible(true);
+    
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  const handleCompleteTask = (task) => {
+    if (!completedTasks.has(task.id)) {
+      setCompletedTasks(prev => new Set([...prev, task.id]));
+      setTotalScore(prev => prev + task.points);
+      setLastCompletedTask(task);
+      setShowCelebration(true);
+      
+      setTimeout(() => {
+        setShowCelebration(false);
+      }, 3000);
+    }
+  };
+
+  const getDifficultyColor = (difficulty) => {
+    switch(difficulty) {
+      case 'Fácil': return 'text-green-400';
+      case 'Médio': return 'text-yellow-400';
+      case 'Difícil': return 'text-red-400';
+      default: return 'text-gray-400';
+    }
+  };
+
+  return (
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-green-900 via-emerald-800 to-teal-900">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* Celebration Modal */}
+      {showCelebration && lastCompletedTask && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div className={`relative bg-gradient-to-r ${lastCompletedTask.color} p-8 rounded-3xl shadow-2xl transform animate-bounce max-w-md mx-auto text-center`}>
+            <div className="flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 animate-spin">
+              <Trophy className="w-10 h-10 text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-white mb-2">🎉 Parabéns! 🎉</h2>
+            <p className="text-xl text-white/90 mb-2">Tarefa Concluída!</p>
+            <p className="text-lg text-white/80 mb-4">"{lastCompletedTask.title}"</p>
+            <div className="text-2xl font-bold text-yellow-300">
+              +{lastCompletedTask.points} pontos
+            </div>
+            <div className="mt-4 text-white/70">
+              Total: {totalScore} pontos
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Header */}
+      <header className="relative z-20 flex justify-between items-center p-6 md:p-8">
+        <div className="flex items-center space-x-3">
+          <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl">
+            <Leaf className="w-8 h-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-white">Echo Task</h1>
+            <p className="text-white/70 text-sm">Missões Diárias</p>
+          </div>
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl">
+            <div className="flex items-center space-x-2">
+              <Star className="w-5 h-5 text-yellow-400" />
+              <span className="text-white font-bold">{totalScore}</span>
+            </div>
+          </div>
+          <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300">
+            <User className="w-5 h-5" />
+          </button>
+          <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300">
+            <Settings className="w-5 h-5" />
+          </button>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="relative z-10 px-6 pb-20">
+        <div 
+          className={`max-w-7xl mx-auto transform transition-all duration-1000 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
+          {/* Hero Section */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-white/30">
+              <Sparkles className="w-5 h-5 text-yellow-300" />
+              <span className="text-white font-medium">Complete suas missões diárias</span>
+              <Heart className="w-5 h-5 text-red-300" />
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              Suas{' '}
+              <span className="relative inline-block">
+                <span className="relative z-10 bg-gradient-to-r from-yellow-300 to-green-300 bg-clip-text text-transparent">
+                  Missões
+                </span>
+                <div className="absolute inset-0 bg-white/20 blur-xl rounded-lg transform scale-110" />
+              </span>
+              {' '}Ecológicas
+            </h1>
+
+            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+              Complete as tarefas e ganhe pontos para salvar o planeta!
+            </p>
+          </div>
+
+          {/* Progress Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+              <div className="text-2xl font-bold text-white mb-1">{completedTasks.size}</div>
+              <div className="text-white/80 text-sm">Tarefas Concluídas</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+              <div className="text-2xl font-bold text-yellow-400 mb-1">{totalScore}</div>
+              <div className="text-white/80 text-sm">Pontos Totais</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+              <div className="text-2xl font-bold text-green-400 mb-1">{9 - completedTasks.size}</div>
+              <div className="text-white/80 text-sm">Restantes</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+              <div className="text-2xl font-bold text-purple-400 mb-1">{Math.round((completedTasks.size / 9) * 100)}%</div>
+              <div className="text-white/80 text-sm">Progresso</div>
+            </div>
+          </div>
+
+          {/* Tasks Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {tasks.map((task) => {
+              const IconComponent = task.icon;
+              const isCompleted = completedTasks.has(task.id);
+              
+              return (
+                <div
+                  key={task.id}
+                  className={`relative bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/15 ${
+                    isCompleted ? 'ring-2 ring-green-400 bg-green-500/20' : ''
+                  }`}
+                >
+                  {/* Completed Badge */}
+                  {isCompleted && (
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
+                      <Check className="w-5 h-5 text-white" />
+                    </div>
+                  )}
+
+                  {/* Task Icon */}
+                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${task.color} rounded-2xl mb-4 shadow-lg`}>
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+
+                  {/* Task Info */}
+                  <div className="mb-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">{task.title}</h3>
+                      <span className={`text-sm font-medium ${getDifficultyColor(task.difficulty)}`}>
+                        {task.difficulty}
+                      </span>
+                    </div>
+                    <p className="text-white/80 text-sm leading-relaxed mb-4">
+                      {task.description}
+                    </p>
+                  </div>
+
+                  {/* Points & Action */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Star className="w-5 h-5 text-yellow-400" />
+                      <span className="text-xl font-bold text-yellow-400">
+                        {task.points} pts
+                      </span>
+                    </div>
+                    
+                    <button
+                      onClick={() => handleCompleteTask(task)}
+                      disabled={isCompleted}
+                      className={`px-6 py-2 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
+                        isCompleted
+                          ? 'bg-green-500 text-white cursor-not-allowed'
+                          : `bg-gradient-to-r ${task.color} text-white hover:scale-105 shadow-lg hover:shadow-xl`
+                      }`}
+                    >
+                      {isCompleted ? (
+                        <>
+                          <Check className="w-4 h-4" />
+                          <span>Concluída</span>
+                        </>
+                      ) : (
+                        <span>Completar</span>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* All Tasks Completed */}
+          {completedTasks.size === 9 && (
+            <div className="mt-12 text-center">
+              <div className="bg-gradient-to-r from-yellow-400 to-green-500 rounded-3xl p-8 max-w-md mx-auto">
+                <Trophy className="w-16 h-16 text-white mx-auto mb-4 animate-bounce" />
+                <h2 className="text-3xl font-bold text-white mb-2">🏆 Missão Completa! 🏆</h2>
+                <p className="text-white/90 mb-4">
+                  Você completou todas as tarefas diárias!
+                </p>
+                <div className="text-2xl font-bold text-white">
+                  Total: {totalScore} pontos
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="flex justify-center mt-12">
+          <div className="flex flex-col items-center space-y-2 text-white/70 animate-bounce">
+            <span className="text-sm">Role para ver mais</span>
+            <ChevronDown className="w-6 h-6" />
+          </div>
+        </div>
+      </main>
+
+      {/* Floating Action Elements */}
+      <div className="fixed bottom-8 right-8 z-30">
+        <div className="flex flex-col space-y-4">
+          <button className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center group">
+            <TreePine className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+          </button>
+          <button className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center group">
+            <Star className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+          </button>
+        </div>
+      </div>
+
+      {/* Ambient Light Effect */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(255,255,255,0.1), transparent 40%)`
+        }}
+      />
+    </div>
+  );
+};
+
+export default EcoTasksPage;
